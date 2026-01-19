@@ -1,12 +1,77 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
 
 const teamMembers = [
-    "Utkarsh Pratham", "Divyanshu Rai", "Yuyutshu Parashar", "Yashika Siwach", "Aryan Bhardwaj"
+    {
+        name: "Utkarsh Pratham",
+        role: "Team Leader & Cybersecurity Expert",
+        desc: "Full Stack Developer fully immersed in Cybersecurity.",
+        img: "/assets/team/utkarsh.png"
+    },
+    {
+        name: "Divyanshu Rai",
+        role: "OSINT & Security Researcher",
+        desc: "Specializes in Open Source Intelligence and digital footprint analysis.",
+        img: "/assets/team/divyanshu.jpg"
+    },
+    {
+        name: "Yuyutshu Parashar",
+        role: "Backend Developer",
+        desc: "Expert in backend systems and Reverse Engineering.",
+        img: "/assets/team/yuyutshu.jpg"
+    },
+    {
+        name: "Yashika Siwach",
+        role: "Marketing & Outreach",
+        desc: "Driving growth and engagement. DSA Enthusiast.",
+        img: "/assets/team/yashika.jpg"
+    },
+    {
+        name: "Aryan Bhardwaj",
+        role: "Frontend Developer",
+        desc: "Web Exploitation specialist with solid frontend knowledge.",
+        img: "/assets/team/aryan.jpg"
+    }
 ];
+
+const images = [
+    "/assets/Gemini_Generated_Image_7nuf9o7nuf9o7nuf.png",
+    "/assets/Gemini_Generated_Image_r2sfcmr2sfcmr2sf.png",
+    "/assets/Gemini_Generated_Image_w2p1zbw2p1zbw2p1.png",
+    "/assets/Gemini_Generated_Image_yw2h9yw2h9yw2h9y.png",
+    "/assets/iitmdl.png",
+    "/assets/1.png",
+    "/assets/Gemini_Generated_Image_6phfz36phfz36phf.png"
+];
+
+const Showcase = () => {
+    return (
+        <div className="marquee-container">
+            <h2 className='section-title'>Experience the Magic</h2>
+            <div className="marquee-wrapper">
+                <motion.div
+                    className="marquee-track"
+                    animate={{ x: [0, -1000] }}
+                    transition={{
+                        repeat: Infinity,
+                        duration: 20,
+                        ease: "linear"
+                    }}
+                >
+                    {/* Render images multiple times for seamless loop */}
+                    {[...images, ...images, ...images].map((img, i) => (
+                        <div key={i} className="marquee-item">
+                            <img src={img} alt={`Showcase ${i}`} />
+                        </div>
+                    ))}
+                </motion.div>
+            </div>
+        </div>
+    );
+};
 
 const LandingPage = () => {
     return (
@@ -14,7 +79,8 @@ const LandingPage = () => {
             <nav className="navbar">
                 <div className="logo">Xaenithra</div>
                 <div className="links">
-                    <a href="#team">Team</a>
+                    <Link to="/app" className="nav-cta">Access Prototype</Link>
+                    <a href="#team" className="nav-cta">Team</a>
                 </div>
             </nav>
 
@@ -33,7 +99,7 @@ const LandingPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
                 >
-                    A voice that cares when you need it most.
+                    Your AI Companion. Always there, always caring.
                 </motion.p>
 
                 <motion.div
@@ -42,8 +108,8 @@ const LandingPage = () => {
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
                 >
-                    <video className="hero-video" autoPlay loop muted playsInline>
-                        <source src="/assets/igstory.mp4" type="video/mp4" />
+                    <video className="hero-video" autoPlay loop muted playsInline controls>
+                        <source src="/assets/Hindi_Cute_Video_Generation.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 </motion.div>
@@ -54,10 +120,12 @@ const LandingPage = () => {
                     transition={{ delay: 0.8, duration: 0.8 }}
                 >
                     <Link to="/app" className="cta-button">
-                        Experience Companio
+                        Launch Prototype
                     </Link>
                 </motion.div>
             </header>
+
+            <Showcase />
 
             <section id="team" className="team-section">
                 <h2 className='logo'>Team Xaenithra</h2>
@@ -65,14 +133,18 @@ const LandingPage = () => {
                     {teamMembers.map((member, i) => (
                         <motion.div
                             className="team-card"
-                            key={member}
+                            key={member.name}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
                         >
-                            <div className="avatar-placeholder">{member[0]}</div>
-                            <h3>{member}</h3>
+                            <div className="member-image-container">
+                                <img src={member.img} alt={member.name} className="member-image" />
+                            </div>
+                            <h3>{member.name}</h3>
+                            <p className="member-role">{member.role}</p>
+                            <p className="member-desc">{member.desc}</p>
                         </motion.div>
                     ))}
                 </div>

@@ -250,34 +250,44 @@ const CompanioInterface = () => {
                             ease: "easeInOut"
                         }}
                     >
-                        <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', gap: '22px', alignItems: 'center', justifyContent: 'center' }}>
+                            {/* Left Eye */}
                             <motion.div
                                 style={{
-                                    width: '10px',
-                                    height: '24px',
-                                    borderRadius: '12px',
+                                    width: '14px',
+                                    height: '20px',
+                                    borderRadius: '50%',
                                     backgroundColor: 'white'
                                 }}
-                                animate={{ scaleY: [1, 1, 0.1, 1] }}
+                                animate={{
+                                    scaleY: [1, 1, 0.1, 1, 1, 1, 1, 1], // Blink
+                                    x: [0, -4, -4, 0, 4, 4, 0, 0],    // Look Left -> Right -> Center
+                                    y: [0, 0, 0, -2, -2, 0, 0, 0]     // Slight upward look
+                                }}
                                 transition={{
-                                    duration: 3,
+                                    duration: 5,
                                     repeat: Infinity,
-                                    times: [0, 0.9, 0.95, 1],
+                                    times: [0, 0.1, 0.12, 0.15, 0.4, 0.5, 0.8, 1],
                                     ease: "easeInOut"
                                 }}
                             />
+                            {/* Right Eye */}
                             <motion.div
                                 style={{
-                                    width: '10px',
-                                    height: '24px',
-                                    borderRadius: '12px',
+                                    width: '14px',
+                                    height: '20px',
+                                    borderRadius: '50%',
                                     backgroundColor: 'white'
                                 }}
-                                animate={{ scaleY: [1, 1, 0.1, 1] }}
+                                animate={{
+                                    scaleY: [1, 1, 0.1, 1, 1, 1, 1, 1], // Blink
+                                    x: [0, -4, -4, 0, 4, 4, 0, 0],    // Look Left -> Right -> Center
+                                    y: [0, 0, 0, -2, -2, 0, 0, 0]     // Slight upward look
+                                }}
                                 transition={{
-                                    duration: 3,
+                                    duration: 5,
                                     repeat: Infinity,
-                                    times: [0, 0.9, 0.95, 1],
+                                    times: [0, 0.1, 0.12, 0.15, 0.4, 0.5, 0.8, 1],
                                     ease: "easeInOut"
                                 }}
                             />

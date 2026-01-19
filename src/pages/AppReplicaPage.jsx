@@ -8,12 +8,13 @@ import './AppReplicaPage.css';
 const AppReplicaPage = () => {
     const [showBadge, setShowBadge] = React.useState(true);
 
-    React.useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowBadge(false);
-        }, 4000);
-        return () => clearTimeout(timer);
-    }, []);
+    // Auto-hide removed as per user request to keep badge visible until manually closed
+    // React.useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setShowBadge(false);
+    //     }, 4000);
+    //     return () => clearTimeout(timer);
+    // }, []);
 
     return (
         <div className="replica-container">
@@ -26,9 +27,11 @@ const AppReplicaPage = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                    <PhoneFrame>
-                        <CompanioInterface />
-                    </PhoneFrame>
+                    <div className="scale-container">
+                        <PhoneFrame>
+                            <CompanioInterface />
+                        </PhoneFrame>
+                    </div>
                 </motion.div>
 
                 <AnimatePresence>

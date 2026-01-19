@@ -25,10 +25,13 @@
     z-index: 1;
 }
 
-.phone-wrapper {
-    position: relative;
-    z-index: 2;
-    transform: scale(0.9);
+
+
+
+.scale-container {
+    transform: scale(0.7);
+    /* Scale the content independently */
+    transform-origin: center center;
 }
 
 .web-replica-badge {
@@ -59,49 +62,94 @@
 }
 
 /* Main Container created by User */
+/* Main Container created by User */
 .Componenets-page {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    /* Side-by-side layout */
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
     position: relative;
+    gap: 4rem;
+    /* Space between phone and badge */
+    padding: 0 5%;
+    /* Prevent edge touching */
 }
 
-/* Phone Wrapper - Centered */
+/* Phone Wrapper */
 .Componenets-page .phone-wrapper {
     position: relative;
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 0 0 auto;
+    /* Do not stretch */
+    position: relative;
+    left: -150px;
+    /* User requested: more left */
+    top: -50px;
+    /* User requested: little above */
 }
 
-/* Badge - Absolute Floating/Toast style */
+.phone-wrapper {
+    margin: 0;
+    /* Scaling logic handled by .scale-container or here */
+}
+
+/* Ensure scale container doesn't mess up layout flow */
+.scale-container {
+    transform: scale(0.75);
+    /* Slight adjustment */
+    transform-origin: center center;
+}
+
+/* Badge - Information Panel style */
 .Componenets-page .web-replica-badge {
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    position: relative;
+    /* Part of the flow now */
+    top: auto;
+    right: auto;
     left: auto;
+    bottom: auto;
     transform: none;
     z-index: 10;
-    max-width: 300px;
-    width: auto;
+    max-width: 400px;
+    width: 100%;
     text-align: left;
     margin: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding-right: 2.5rem;
+    background: rgba(255, 255, 255, 0.85);
+    /* Slightly more transparent */
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    /* Softer shadow */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem;
+    border-radius: 24px;
 }
 
-/* Keep responsive behavior */
+/* Responsive: Stack on smaller screens */
 @media (max-width: 900px) {
+    .Componenets-page {
+        flex-direction: column-reverse;
+        /* Badge on top or bottom? User wants it visible */
+        gap: 2rem;
+        padding-top: 4rem;
+    }
+
     .Componenets-page .web-replica-badge {
+        position: relative;
         width: 90%;
-        bottom: 1rem;
+        max-width: none;
+        text-align: center;
+        padding-right: 2rem;
+        /* Reset padding */
+    }
+
+    .scale-container {
+        transform: scale(0.65);
+        /* Smaller on mobile */
     }
 }
