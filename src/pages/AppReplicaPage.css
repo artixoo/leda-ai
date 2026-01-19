@@ -1,14 +1,17 @@
 .replica-container {
     min-height: 100vh;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 4rem;
     background: #e0e0e0;
     /* Fallback */
     background: url('/assets/iitmdl.png') no-repeat center center/cover;
     /* Optional bg usage */
     position: relative;
     overflow: hidden;
+    padding: 2rem;
 }
 
 .replica-backdrop {
@@ -29,24 +32,76 @@
 }
 
 .web-replica-badge {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     background: rgba(255, 255, 255, 0.9);
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
+    padding: 2rem;
+    border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     z-index: 10;
     font-weight: 600;
     color: var(--color-text-main);
-    width: 90%;
-    max-width: 600px;
+    width: 100%;
+    max-width: 400px;
     text-align: center;
+    backdrop-filter: blur(10px);
 }
 
-@media (min-width: 768px) {
-    .phone-wrapper {
-        transform: scale(1);
+@media (max-width: 900px) {
+    .replica-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .web-replica-badge {
+        text-align: center;
+        max-width: 90%;
+    }
+}
+
+/* Main Container created by User */
+.Componenets-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Phone Wrapper - Centered */
+.Componenets-page .phone-wrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Badge - Absolute Floating/Toast style */
+.Componenets-page .web-replica-badge {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    left: auto;
+    transform: none;
+    z-index: 10;
+    max-width: 300px;
+    width: auto;
+    text-align: left;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding-right: 2.5rem;
+}
+
+/* Keep responsive behavior */
+@media (max-width: 900px) {
+    .Componenets-page .web-replica-badge {
+        width: 90%;
+        bottom: 1rem;
     }
 }
