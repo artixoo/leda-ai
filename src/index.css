@@ -1,22 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-
 :root {
   --color-bg: #FFF7F2;
   --color-surface: #FFFFFF;
-  --color-primary: #FFAB91; /* Soft Peach/Salmon */
+  --color-primary: #FFAB91;
+  /* Soft Peach/Salmon */
   --color-primary-dark: #FF8A65;
-  --color-secondary: #FFD180; /* Soft Orange/Gold */
-  --color-accent: #80CBC4; /* Soft Teal/Mint */
+  --color-secondary: #FFD180;
+  /* Soft Orange/Gold */
+  --color-accent: #80CBC4;
+  /* Soft Teal/Mint */
   --color-text-main: #4E342E;
   --color-text-sub: #795548;
-  
-  --font-family: 'Outfit', sans-serif;
-  
+
+  --font-family: 'Fira Sans', sans-serif;
+
   --radius-xl: 32px;
   --radius-lg: 24px;
   --radius-md: 16px;
   --radius-sm: 8px;
-  
+
   --shadow-soft: 0 8px 24px rgba(255, 171, 145, 0.15);
   --shadow-hover: 0 12px 32px rgba(255, 171, 145, 0.25);
 }
@@ -31,12 +32,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 #root {
-    height: 100%;
+  height: 100%;
 }
 
 * {

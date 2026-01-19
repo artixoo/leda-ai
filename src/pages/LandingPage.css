@@ -13,10 +13,16 @@
 }
 
 .logo {
+    font-family: 'Fredoka', sans-serif;
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 500;
+    /* High Bold */
     color: var(--color-text-main);
-    letter-spacing: 1px;
+    letter-spacing: 0;
+}
+
+.brand {
+    font-family: 'Borel', cursive;
 }
 
 .links a {

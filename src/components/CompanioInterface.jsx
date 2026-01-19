@@ -230,7 +230,6 @@ const CompanioInterface = () => {
     return (
         <div className="companio-ui">
             <header className="ui-header">
-                <div className="brand">Companio</div>
                 <div className="greeting">Good Morning,</div>
                 <div className="user-name">Grandpa</div>
             </header>

@@ -20,6 +20,7 @@ const LandingPage = () => {
 
             <header className="hero">
                 <motion.h1
+                    className='brand'
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
@@ -59,7 +60,7 @@ const LandingPage = () => {
             </header>
 
             <section id="team" className="team-section">
-                <h2>Team Xaenithra</h2>
+                <h2 className='logo'>Team Xaenithra</h2>
                 <div className="team-grid">
                     {teamMembers.map((member, i) => (
                         <motion.div
