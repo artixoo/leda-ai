@@ -1,4 +1,12 @@
-# Companio
+# ⬛ LEDA AI
+
+> AI Voice Companion Node (Leda)
+
+```
+[SYSTEM] Initializing cognitive modules...
+[STATUS] Leda persona online.
+```
+
 
 Companio is an AI-powered companion designed to provide company and assistance, particularly suited for the elderly or those feeling lonely. It features a voice-interactive persona of a 12-year-old grandchild, "Leda", who engages in empathetic conversations, tells stories, and helps with daily tasks.
 
@@ -70,3 +78,8 @@ Companio is an AI-powered companion designed to provide company and assistance, 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+*Note: This is a legacy repository from my previous profile. I changed my GitHub account, so it has been pushed here lately.*
+
+**Contact:** [artix@outlook.in](mailto:artix@outlook.in) | `// EOF`
